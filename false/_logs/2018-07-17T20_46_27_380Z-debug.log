@@ -1,0 +1,40 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/Users/tompascall/npm/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'jest',
+1 verbose cli   '--no-cache' ]
+2 info using npm@6.1.0
+3 info using node@v8.9.3
+4 verbose run-script [ 'prejest', 'jest', 'postjest' ]
+5 info lifecycle patterns@1.0.0~prejest: patterns@1.0.0
+6 info lifecycle patterns@1.0.0~jest: patterns@1.0.0
+7 verbose lifecycle patterns@1.0.0~jest: unsafe-perm in lifecycle true
+8 verbose lifecycle patterns@1.0.0~jest: PATH: /Users/tompascall/npm/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/tompascall/dev/playground/patterns/node_modules/.bin:/usr/local/Cellar/pyenv-virtualenv/1.0.0/shims:/Users/tompascall/.pyenv/shims:/Users/tompascall/dev/apache-ant-1.9.4/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home:/usr/local/Cellar/mongodb/2.6.4_1:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/git/bin:/Users/tompascall/npm/bin:/Users/tompascall/dev/android-sdk-macosx/platform-tools:/Users/tompascall/dev/android-sdk-macosx/tools:/Users/tompascall/dev/android-sdk-macosx/build-tools/22.0.1:/Users/tompascall/dev/go-works/bin:
+9 verbose lifecycle patterns@1.0.0~jest: CWD: /Users/tompascall/dev/playground/patterns
+10 silly lifecycle patterns@1.0.0~jest: Args: [ '-c', 'jest' ]
+11 silly lifecycle patterns@1.0.0~jest: Returned: code: 1  signal: null
+12 info lifecycle patterns@1.0.0~jest: Failed to exec jest script
+13 verbose stack Error: patterns@1.0.0 jest: `jest`
+13 verbose stack Exit status 1
+13 verbose stack     at EventEmitter.<anonymous> (/Users/tompascall/npm/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:304:16)
+13 verbose stack     at emitTwo (events.js:126:13)
+13 verbose stack     at EventEmitter.emit (events.js:214:7)
+13 verbose stack     at ChildProcess.<anonymous> (/Users/tompascall/npm/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
+13 verbose stack     at emitTwo (events.js:126:13)
+13 verbose stack     at ChildProcess.emit (events.js:214:7)
+13 verbose stack     at maybeClose (internal/child_process.js:925:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+14 verbose pkgid patterns@1.0.0
+15 verbose cwd /Users/tompascall/dev/playground/patterns
+16 verbose Darwin 17.4.0
+17 verbose argv "/usr/local/bin/node" "/Users/tompascall/npm/bin/npm" "run" "jest" "--no-cache"
+18 verbose node v8.9.3
+19 verbose npm  v6.1.0
+20 error code ELIFECYCLE
+21 error errno 1
+22 error patterns@1.0.0 jest: `jest`
+22 error Exit status 1
+23 error Failed at the patterns@1.0.0 jest script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 1, true ]

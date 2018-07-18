@@ -7,7 +7,9 @@
   "private": false,
   "scripts": {
     "jest": "jest",
-    "jest:watch": "jest --watch"
+    "jest:watch": "jest --watch",
+    "flow": "flow",
+    "flow-watch": "fswatch -o ./ | xargs -n1 -I{} sh -c 'clear; printf \"\\033[3J\" && flow'"
   },
   "dependencies": {
     "babel-preset-env": "^1.6.1",
@@ -16,5 +18,10 @@
   "keywords": [
     "design",
     "patterns"
-  ]
+  ],
+  "devDependencies": {
+    "babel-preset-flow": "^6.23.0",
+    "fast-deep-equal": "^2.0.1",
+    "flow-bin": "^0.76.0"
+  }
 }
