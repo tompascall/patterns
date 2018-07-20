@@ -9,9 +9,11 @@
     "jest": "jest",
     "jest:watch": "jest --watch",
     "flow": "flow",
-    "flow-watch": "fswatch -o ./ | xargs -n1 -I{} sh -c 'clear; printf \"\\033[3J\" && flow'"
+    "flow-watch": "fswatch -o ./ | xargs -n1 -I{} sh -c 'clear; printf \"\\033[3J\" && flow'",
+    "build": "rm -f build && babel demo --out-dir dist/demo && babel src --out-dir dist/src"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^22.4.3"
   },
