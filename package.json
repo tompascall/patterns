@@ -22,6 +22,7 @@
     "patterns"
   ],
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
     "fast-deep-equal": "^2.0.1",
     "flow-bin": "^0.76.0"
