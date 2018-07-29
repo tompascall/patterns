@@ -9,6 +9,7 @@ export default class CheesePizza extends Pizza {
   constructor(ingredientFactory: PizzaIngredientFactory) {
     super();
     this.ingredientFactory = ingredientFactory;
+    this.name = 'NY Style Cheese Pizza';
   }
 
   prepare() {

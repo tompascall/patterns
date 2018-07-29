@@ -2,18 +2,31 @@
 
 import PizzaStore from './PizzaStore';
 import Pizza from '../pizza/Pizza';
-import NYStyleCheesePizza from '../pizza/NYStyleCheesePizza';
-import NYStyleVeggiePizza from '../pizza/NYStyleVeggiePizza';
+import NYPizzaIngredientFactory from '../ingredient/NYPizzaIngredientFactory';
+import type { PizzaIngredientFactory } from '../ingredient/PizzaIngredientFactory';
+import CheesePizza from '../pizza/CheesePizza';
+import ClamPizza from '../pizza/ClamPizza';
 
 export default class NYStylePizzaStore extends PizzaStore {
+  pizza: Pizza;
+  ingredientFactory: PizzaIngredientFactory;
+
+  constructor() {
+    super();
+    this.ingredientFactory = new NYPizzaIngredientFactory();
+  }
+
   createPizza(type: string): Pizza {
     switch (type) {
       case 'cheese':
-        return new NYStyleCheesePizza();
-      case 'veggie':
-        return new NYStyleVeggiePizza();
+        this.pizza = new CheesePizza(this.ingredientFactory);
+        break;
+      case 'clam':
+        this.pizza = new ClamPizza(this.ingredientFactory);
+        break;
       default:
-        return new Pizza();
+        this.pizza = new Pizza();
     }
+    return this.pizza;
   }
 }

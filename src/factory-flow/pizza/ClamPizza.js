@@ -1,9 +1,11 @@
 import type { PizzaIngredientFactory } from '../ingredient/PizzaIngredientFactory';
+import Pizza from '../pizza/Pizza';
 
 export default class ClamPizza extends Pizza {
   ingredientFactory: PizzaIngredientFactory;
 
   constructor(ingredientFactory: PizzaIngredientFactory) {
+    super();
     this.ingredientFactory = ingredientFactory;
   }
 

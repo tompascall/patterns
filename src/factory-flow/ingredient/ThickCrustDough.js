@@ -1,1 +1,3 @@
-export default class ThickCrustDough {}
+import Dough from './Dough';
+
+export default class ThickCrustDough extends Dough {}

@@ -2,18 +2,31 @@
 
 import PizzaStore from './PizzaStore';
 import Pizza from '../pizza/Pizza';
-import CAStyleCheesePizza from '../pizza/CAStyleCheesePizza';
-import CAStyleVeggiePizza from '../pizza/CAStyleVeggiePizza';
+import CAPizzaIngredientFactory from '../ingredient/CAPizzaIngredientFactory';
+import type { PizzaIngredientFactory } from '../ingredient/PizzaIngredientFactory';
+import CheesePizza from '../pizza/CheesePizza';
+import ClamPizza from '../pizza/ClamPizza';
 
 export default class CAStylePizzaStore extends PizzaStore {
+  pizza: Pizza;
+  ingredientFactory: PizzaIngredientFactory;
+
+  constructor() {
+    super();
+    this.ingredientFactory = new CAPizzaIngredientFactory();
+  }
+
   createPizza(type: string): Pizza {
     switch (type) {
       case 'cheese':
-        return new CAStyleCheesePizza();
-      case 'veggie':
-        return new CAStyleVeggiePizza();
+        this.pizza = new CheesePizza(this.ingredientFactory);
+        break;
+      case 'clam':
+        this.pizza = new ClamPizza(this.ingredientFactory);
+        break;
       default:
-        return new Pizza();
+        this.pizza = new Pizza();
     }
+    return this.pizza;
   }
 }
