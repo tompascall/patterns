@@ -1,6 +1,8 @@
 // @flow
 
 import MenuItem from './MenuItem';
+import type { Iterator } from './Iterator';
+import DinerMenuIterator from './DinerMenuIterator';
 
 export default class DinerMenu {
   menuItems: Set<MenuItem>;
@@ -20,5 +22,7 @@ export default class DinerMenu {
     this.menuItems.add(menuItem);
   }
 
-  getItems() { return this.menuItems };
+  createIterator() {
+    return new DinerMenuIterator(this.menuItems);
+  }
 }

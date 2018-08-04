@@ -2,23 +2,29 @@
 import PancakeHouseMenu from './PancakeHouseMenu';
 import DinerMenu from './DinerMenu';
 import MenuItem from './MenuItem';
+import type { Iterator } from './Iterator';
 
 export default class Waitress {
-  breakfastItems: MenuItem[];
-  lunchItems: Set<MenuItem>;
+  pancakeHouseMenu: PancakeHouseMenu;
+  dinerMenu: DinerMenu;
 
-  constructor() {
-    this.breakfastItems = (new PancakeHouseMenu()).getItems();
-    this.lunchItems = (new DinerMenu()).getItems();
+  constructor(pancakeHouseMenu: PancakeHouseMenu, dinerMenu: DinerMenu) {
+    this.pancakeHouseMenu = pancakeHouseMenu;
+    this.dinerMenu = dinerMenu;
   }
 
   print() {
-    for (let menuItem of this.breakfastItems) {
-      console.log(`${menuItem.getName()} ${menuItem.getPrice()} ${menuItem.getDescription()}`);
-    }
+    const pancakeIterator = this.pancakeHouseMenu.createIterator();
+    const dinerIterator = this.dinerMenu.createIterator();
+    this.printMenu(pancakeIterator);
+    this.printMenu(dinerIterator);
+  }
 
-    for (let menuItem of this.lunchItems) {
-      console.log(`${menuItem.getName()} ${menuItem.getPrice()} ${menuItem.getDescription()}`);
+  printMenu(iterator: Iterator) {
+    let { value, done } = iterator.next();
+    while (!done) {
+      console.log(`${value.getName()} ${value.getPrice()} ${value.getDescription()}`);
+      ({ value, done } = iterator.next());
     }
   }
 }

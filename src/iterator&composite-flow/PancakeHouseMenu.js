@@ -1,6 +1,8 @@
 // @flow
 
 import MenuItem from './MenuItem';
+import type { Iterator } from './Iterator';
+import PancakeHouseIterator from './PancakeHouseIterator';
 
 export default class PancakeHouseMenu {
   menuItems: Array<MenuItem>;
@@ -20,5 +22,7 @@ export default class PancakeHouseMenu {
     this.menuItems.push(menuItem);
   }
 
-  getItems() { return this.menuItems };
+  createIterator() {
+    return new PancakeHouseIterator(this.menuItems);
+  }
 }
