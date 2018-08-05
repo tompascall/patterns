@@ -1,12 +1,15 @@
 // @flow
 
-export default class MenuItem {
+import MenuComponent from './MenuComponent';
+
+export default class MenuItem extends MenuComponent {
   name: string;
   description: string;
   vegetarian: boolean;
   price: number;
 
   constructor(name: string, description: string, vegetarian: boolean, price: number) {
+    super();
     this.name = name;
     this.description = description;
     this.vegetarian = vegetarian;
@@ -29,4 +32,8 @@ export default class MenuItem {
     return this.vegetarian;
   }
 
+  print() {
+    console.log(`
+      ${this.getName()} ${(this.isVegetarian() ? '(v)': '')} ${this.getPrice()} ${this.getDescription()}`);
+  }
 }
