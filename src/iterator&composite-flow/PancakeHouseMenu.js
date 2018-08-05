@@ -2,10 +2,9 @@
 
 import MenuItem from './MenuItem';
 import type { Iterator } from './Iterator';
-import PancakeHouseIterator from './PancakeHouseIterator';
 
 export default class PancakeHouseMenu {
-  menuItems: Array<MenuItem>;
+  menuItems: any; /* MenuItem[]; flow cannot handle Symbol.iterator properly */
 
   constructor() {
     this.menuItems = [];
@@ -23,6 +22,7 @@ export default class PancakeHouseMenu {
   }
 
   createIterator() {
-    return new PancakeHouseIterator(this.menuItems);
+    return this.menuItems[Symbol.iterator]();
   }
+
 }

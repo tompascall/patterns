@@ -2,10 +2,9 @@
 
 import MenuItem from './MenuItem';
 import type { Iterator } from './Iterator';
-import DinerMenuIterator from './DinerMenuIterator';
 
 export default class DinerMenu {
-  menuItems: Set<MenuItem>;
+  menuItems: any /* Set<MenuItem> // flow cannot handle Symbol.iterator properly */;
 
   constructor() {
     this.menuItems = new Set();
@@ -23,6 +22,6 @@ export default class DinerMenu {
   }
 
   createIterator() {
-    return new DinerMenuIterator(this.menuItems);
+    return this.menuItems[Symbol.iterator]();
   }
 }
