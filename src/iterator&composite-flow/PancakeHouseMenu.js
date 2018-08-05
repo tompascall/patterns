@@ -2,8 +2,9 @@
 
 import MenuItem from './MenuItem';
 import type { Iterator } from './Iterator';
+import type { Menu } from './Menu';
 
-export default class PancakeHouseMenu {
+export default class PancakeHouseMenu implements Menu {
   menuItems: any; /* MenuItem[]; flow cannot handle Symbol.iterator properly */
 
   constructor() {
