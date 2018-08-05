@@ -1,6 +1,7 @@
 // @flow
 
 import MenuComponent from './MenuComponent';
+import NullIterator from './NullIterator';
 
 export default class MenuItem extends MenuComponent {
   name: string;
@@ -35,5 +36,9 @@ export default class MenuItem extends MenuComponent {
   print() {
     console.log(`
       ${this.getName()} ${(this.isVegetarian() ? '(v)': '')} ${this.getPrice()} ${this.getDescription()}`);
+  }
+
+  createIterator() {
+    return new NullIterator();
   }
 }

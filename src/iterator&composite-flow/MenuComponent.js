@@ -1,6 +1,7 @@
 // @flow
 
 import UnsupportedOperationError from '../error/UnsupportedOperationError';
+import type { Iterator } from './Iterator';
 
 export default class MenuComponent {
   add(menuComponent: MenuComponent): void {
@@ -34,4 +35,9 @@ export default class MenuComponent {
   print(): void {
     throw new UnsupportedOperationError();
   }
+
+  createIterator(): Iterator {
+    throw new UnsupportedOperationError();
+  }
+
 };

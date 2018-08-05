@@ -14,4 +14,8 @@ describe('Waitress', () => {
   it('should print menus without error', () => {
     expect(() => (new Waitress(allMenus)).print()).not.toThrow();
   });
+
+  it('should print vegetarian menus without error', () => {
+    expect(() => (new Waitress(allMenus)).printVegetarianMenu()).not.toThrow();
+  });
 });

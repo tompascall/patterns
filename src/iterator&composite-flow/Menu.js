@@ -1,24 +1,21 @@
 // @flow
 
-// import type { Iterator } from './Iterator';
-// import MenuItem from './MenuItem';
-
-// export interface Menu {
-//   +createIterator: Iterator<MenuItem>
-// }
-
+import type { Iterator } from './Iterator';
 import MenuComponent from './MenuComponent';
+import CompositeIterator from './CompositeIterator';
 
 export default class Menu extends MenuComponent {
   name: string;
   description: string;
   menuComponents: any; /* MenuComponent[];  flow cannot handle Symbol.iterator properly */
+  iterator: Iterator;
 
   constructor(name: string, description: string) {
     super();
     this.name = name;
     this.description = description;
     this.menuComponents = [];
+    this.iterator = null;
   }
 
   add(menuComponent: MenuComponent): void {
@@ -50,5 +47,12 @@ export default class Menu extends MenuComponent {
       menuComponent.print();
       ({ value: menuComponent, done } = iterator.next());
     }
+  }
+
+  createIterator() {
+    if (this.iterator === null) {
+      this.iterator = new CompositeIterator(this.menuComponents[Symbol.iterator]());
+    }
+    return this.iterator;
   }
 }
