@@ -7,28 +7,20 @@ import type { Iterator } from './Iterator';
 import type { Menu } from './Menu';
 
 export default class Waitress {
-  pancakeHouseMenu: Menu;
-  dinerMenu: Menu;
-  cafeMenu: Menu;
-
-  constructor(pancakeHouseMenu: Menu, dinerMenu: Menu, cafeMenu: Menu) {
-    this.pancakeHouseMenu = pancakeHouseMenu;
-    this.dinerMenu = dinerMenu;
-    this.cafeMenu = cafeMenu;
+  menus: any /* Menu[]; // flow cannot handle Symbol.iterator properly */
+  constructor(menus: any /* Menu[] */) {
+    this.menus = menus;
   }
 
   print() {
-    const pancakeIterator = this.pancakeHouseMenu.createIterator();
-    const dinerIterator = this.dinerMenu.createIterator();
-    const cafeIterator = this.cafeMenu.createIterator();
-    console.log('MENU');
-    console.log('BREAKFAST')
-    this.printMenu(pancakeIterator);
-    console.log('LUNCH');
-    this.printMenu(dinerIterator);
-    console.log('DINNER');
-    this.printMenu(cafeIterator);
+    const menuIterator = this.menus[Symbol.iterator]();
+    let { value: menu, done } = menuIterator.next();
+    while (!done) {
+      this.printMenu(menu.createIterator());
+      ({ value: menu, done } = menuIterator.next());
+    }
   }
+
 
   printMenu(iterator: Iterator) {
     let { value, done } = iterator.next();
