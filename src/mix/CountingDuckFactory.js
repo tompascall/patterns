@@ -1,6 +1,6 @@
 // @flow
 
-import AbstractDuckFactory from "./AbstractDuckkFactory";
+import AbstractDuckFactory from "./AbstractDuckFactory";
 import QuackCounter from "./QuackCounter";
 import MallardDuck from "./MallardDuck";
 import ReadheadDuck from "./ReadheadDuck";

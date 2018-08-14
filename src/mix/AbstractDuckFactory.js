@@ -1,6 +1,5 @@
 //@flow
 
-import { Quackable } from "./Quackable";
 import AbstractMethodError from '../error/AbstractMethodError';
 
 export default class AbstractDuckFactory {

@@ -8,15 +8,16 @@ import RubberDuck from './RubberDuck';
 import GooseAdapter from './GooseAdapter';
 import Goose from './Goose';
 import QuackCounter from './QuackCounter';
-import AbstractDuckFactory from './AbstractDuckkFactory';
+import AbstractDuckFactory from './AbstractDuckFactory';
+import AbstractGooseFactory from './AbstractGooseFactory';
 
 export default class DuckSimulator {
-  simulate(duckFactory: AbstractDuckFactory) {
+  simulate(duckFactory: AbstractDuckFactory, duckGooseFactory: AbstractGooseFactory) {
     const mallardDuck: Quackable = duckFactory.createMallardDuck();
     const readheadDuck: Quackable = duckFactory.createRedheadDuck();
     const duckCall: Quackable = duckFactory.createDuckCall();
     const rubberDuck: Quackable = duckFactory.createRubberDuck();
-    const gooseDuck: Quackable = new GooseAdapter(new Goose());
+    const gooseDuck: Quackable = duckGooseFactory.createGoose();
 
     this.doSimulate(mallardDuck);
     this.doSimulate(readheadDuck);
