@@ -11,6 +11,7 @@ import QuackCounter from './QuackCounter';
 import AbstractDuckFactory from './AbstractDuckFactory';
 import AbstractGooseFactory from './AbstractGooseFactory';
 import Flock from './Flock';
+import Quackologist from './Quackologist';
 
 export default class DuckSimulator {
   simulate(duckFactory: AbstractDuckFactory, duckGooseFactory: AbstractGooseFactory) {
@@ -37,6 +38,9 @@ export default class DuckSimulator {
     flockOfMallards.add(mallardDuck4);
 
     flockOfDucks.add(flockOfMallards);
+
+    const quackologist = new Quackologist();
+    flockOfDucks.registerObserver(quackologist);
 
     this.doSimulate(flockOfDucks);
     this.doSimulate(flockOfMallards);
